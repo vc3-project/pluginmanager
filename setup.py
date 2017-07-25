@@ -4,16 +4,14 @@
 #
 #
 
-import commands
-import os
-import re
-import sys
 
-from distutils.core import setup
-from distutils.command.install import install as install_org
-from distutils.command.install_data import install_data as install_data_org
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 import pluginmanager
+
 release_version = pluginmanager.__version__
 
 # setup for distutils
@@ -29,6 +27,6 @@ setup(
     maintainer_email='jcaballero@bnl.gov',
     url='https://github.com/bnl-sdcc/plugin-manager',
     py_modules=['pluginmanager', ],
-    scripts = [ ],
-    data_files = []
+    scripts=[],
+    data_files=[]
 )
