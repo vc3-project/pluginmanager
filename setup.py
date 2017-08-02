@@ -10,9 +10,10 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import pluginmanager
+import time
 
-release_version = pluginmanager.__version__
+current_time = time.gmtime()
+release_version = "{0}.{1:0>2}.{2:0>2}".format(current_time.tm_year, current_time.tm_mon, current_time.tm_mday)
 
 # setup for distutils
 setup(
